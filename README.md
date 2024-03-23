@@ -25,11 +25,13 @@ A client transitions to CHAT mode after completing the registration and bridge p
 
 ## Operation Details
 
-The server program stores contact information upon a REGISTER request for later retrieval when a BRIDGE request is made.
+The server program stores contact information upon a REGISTER request for later retrieval when a BRIDGE request is made. It must be run before the client program and specify its port number. An example of proper execution is as follows:
 
-The client program requires initial information such as client ID, port number, and server address to start. For example:
+`python3 tcp-chat-server.py --port=5555`
 
-`python3 client.py --id='student1' --port=3000 --server='200.26.180.43:5555'`
+The client program requires initial information such as client ID, port number, and server address to start. The server address is hardcoded as 127.0.0.2. An example of proper execution is as follows:
+
+`python3 tcp-chat-client.py --id='user1' --port=3000 --server='127.0.0.2:5555'`
 
 The chat session can be ended by either peer entering `/quit`, which terminates the TCP connection and the program.
 
